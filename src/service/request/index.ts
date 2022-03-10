@@ -34,27 +34,27 @@ class YfRequest {
       this.interceptors?.responseInterceptorCatch
     )
 
-    // 所有实例拦截器
-    this.instance.interceptors.request.use(
-      (config) => {
-        // console.log('所有实例请求拦截器')
-        return config
-      },
-      (err) => {
-        console.log(err)
-        return err
-      }
-    )
-    this.instance.interceptors.response.use(
-      (res) => {
-        // console.log('所有实例响应拦截器')
-        return res
-      },
-      (err) => {
-        console.log(err)
-        return err
-      }
-    )
+    // // 所有实例拦截器
+    // this.instance.interceptors.request.use(
+    //   (config) => {
+    //     // console.log('所有实例请求拦截器')
+    //     return config
+    //   },
+    //   (err) => {
+    //     console.log(err)
+    //     return err
+    //   }
+    // )
+    // this.instance.interceptors.response.use(
+    //   (res) => {
+    //     // console.log('所有实例响应拦截器')
+    //     return res
+    //   },
+    //   (err) => {
+    //     console.log(err)
+    //     return err
+    //   }
+    // )
   }
 
   // 在request里封装每一次网络请求的请求拦截器与响应拦截器
