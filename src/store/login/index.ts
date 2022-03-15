@@ -1,4 +1,5 @@
 import { Module } from 'vuex'
+import { accountLoginRequest } from '@/service/login/login'
 
 import { IrootState, ILoginState } from './type'
 // Module<S, R> S是模块中state的类型  R是根模块中state的类型
@@ -10,9 +11,16 @@ const loginModule: Module<ILoginState, IrootState> = {
       userInfo: {}
     }
   },
+  mutations: {
+    changeToken(state, token) {
+      state.token = token
+    }
+  },
   actions: {
-    accountLoginAction({ commit }, payload: any) {
-      console.log('执行accountLoginAction', payload)
+    async accountLoginAction({ commit }, payload: any) {
+      const loginResult = await accountLoginRequest(payload)
+      const { id, token } = loginResult.data
+      commit('changeToken', token)
     }
   }
 }

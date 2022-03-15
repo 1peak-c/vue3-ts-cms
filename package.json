@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "axios": "^0.26.0",
     "core-js": "^3.6.5",
     "element-plus": "^2.0.5",
     "normalize.css": "^8.0.1",
