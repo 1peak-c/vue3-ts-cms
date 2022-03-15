@@ -19,7 +19,7 @@ const loginModule: Module<ILoginState, IrootState> = {
   actions: {
     async accountLoginAction({ commit }, payload: any) {
       const loginResult = await accountLoginRequest(payload)
-      const { id, token } = loginResult.data
+      const { token } = loginResult.data
       commit('changeToken', token)
     }
   }
