@@ -5,6 +5,7 @@ import store from './store'
 import 'normalize.css'
 import './assets/css/index.less'
 // import YfRequest from './service'
+import { setupStore } from './store'
 
 // 这个请求会有单独的拦截器
 // YfRequest.request({
@@ -25,14 +26,11 @@ import './assets/css/index.less'
 //   console.log(res)
 // })
 
-// import { BASE_URL, BASE_NAME } from './service/request/config'
-// console.log(BASE_URL)
-// console.log(BASE_NAME)
-// console.log(123)
-
 const app = createApp(App)
 app.use(store)
 app.use(router)
 // registerApp(app)
 
+// vuex刷新缓存（重新发送请求把数据再存一次）
+setupStore()
 app.mount('#app')

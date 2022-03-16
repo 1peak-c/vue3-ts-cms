@@ -11,7 +11,7 @@ interface YfRequestInterceptors {
   responseInterceptorCatch?: (err: any) => any
 }
 // /service/index.ts 里的传入的配置参数改变   YfRequsetConfig这个接口类型继承AxiosRequestConfig  这样就可以传入自定义拦截器配置YfrequestInterceptors
-interface YfRequsetConfig extends AxiosRequestConfig {
+export interface YfRequsetConfig extends AxiosRequestConfig {
   interceptors?: YfRequestInterceptors
 }
 

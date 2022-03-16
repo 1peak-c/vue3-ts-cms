@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 import type { IrootState } from './login/type'
 import login from './login'
 
-export default createStore<IrootState>({
+const store = createStore<IrootState>({
   state() {
     return {
       name: '',
@@ -15,3 +15,8 @@ export default createStore<IrootState>({
     login
   }
 })
+export function setupStore(): any {
+  store.dispatch('login/loadLocalLogin')
+}
+
+export default store

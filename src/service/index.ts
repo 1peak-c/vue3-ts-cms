@@ -1,14 +1,19 @@
 //  service 统一出口
 
 import YfRequest from './request'
-import { BASE_URL, TIMEOUT } from './request/config'
+import { BASE_URL, TIME_OUT } from './request/config'
+import localCache from '@/utils/cache'
 
 const yfRequest = new YfRequest({
   baseURL: BASE_URL,
-  timeout: TIMEOUT,
+  timeout: TIME_OUT,
   interceptors: {
-    requestInterceptor: (config) => {
-      console.log('实例请求成功拦截')
+    requestInterceptor: (config: any) => {
+      // 携带token的拦截
+      const token = localCache.getCache('token')
+      if (token) {
+        config.headers.Authorization = `Bearer ${token}`
+      }
       return config
     },
     requestInterceptorCatch: (err) => {
